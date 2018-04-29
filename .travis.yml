@@ -1,12 +1,12 @@
 script:
-- VERSION=latest make build.docker
+- VERSION=v1.10.2 make build.docker
 jobs:
   include:
   - stage: build-push
     if: branch = master AND type != pull_request
     script:
     - docker login -u $DOCKER_USER -p $DOCKER_PASS
-    - VERSION=latest make build.push
+    - VERSION=v1.10.2 make build.push
 env:
   global:
   - secure: CIVPiP4m9XlHaDrqUWw7amQhKwtpGMx12DveUzlhLXwmdWpsLI2TxfhPR74kSkV0I9WeUjxG2yqH2SS95SDLQsMJUCLqHh+JQ5BAqgcN/rdgD15ErNHZioxrI9BGH+vwlrjURPBtpWyGAR2l+gLRYXrTRpS7mLpMCJMMKligO5Z3oi7AC97l0sFzAADxmp6WnuFxK4pG68UL3ARP4BM2MIAiMzbHWDjqkEOrb7a37gxxVZG9LYJUE8TCPI3vNYYIN6CEM4jKrqG+vwt1naKmiJnWQ9SDFMyUB+3U+OgN2B9joFT6dfDWlEPNh09uoH8xAFiFEyEr+N9d7t6n8jD+0jEWcciSBQPSBlzLZxMfkFySxS61upAGcMFUl4uDiXC4DOMWy09OURtv0VRABQu1PX7FvSXPvGuu6kEE8HUyQHrSsS2bkTu8kvi7b2/RE3ScPI7r2Mgl8IT9jQixXAAdZf5ImhVpQaK9YW3F24Tu+/Vv8FhI5DV+UxRP91MwFbY2a3NK5ljoF7xTE5HHzdYfgsGlvkOZrCLDglhhtLCYTPjJBfCvCFYyBmczRf2OIFZw+eQ64cpfP8caiFTpfMEFJqqSbMjNXUVlnpOQxypTuZz/TC2Vzr99LcdkdhsHAlKTDKeuw1vwIBMWTQf6/ZaXmust6c/ss+SUn/K8z3x8/Hc=
